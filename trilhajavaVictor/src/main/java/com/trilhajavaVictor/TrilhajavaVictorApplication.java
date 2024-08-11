@@ -1,8 +1,6 @@
 package com.trilhajavaVictor;
 
-import com.trilhajavaVictor.model.DadosSerie;
-import com.trilhajavaVictor.service.ConsumoApi;
-import com.trilhajavaVictor.service.ConverteDados;
+import com.trilhajavaVictor.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,14 +13,10 @@ public class TrilhajavaVictorApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var consumoApi = new ConsumoApi();
-		var json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&apikey=9d1fced8");
-	//	System.out.println(json);
-		//json = consumoApi.obterDados("https://coffee.alexflipnote.dev/random.json");
-		System.out.println(json);
-		var converteDados = new ConverteDados();
-		DadosSerie dados = converteDados.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
+		Principal principal = new Principal();
+		principal.exibeMenu();
+
+
 
 	}
 }
